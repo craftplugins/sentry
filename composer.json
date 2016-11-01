@@ -1,0 +1,17 @@
+{
+	"name": "craft-sentry/sentry",
+	"description": "Craft integration with error monitoring service Sentry.",
+	"type": "craft-plugin",
+	"authors": [
+		{
+			"name": "Joshua Baker",
+			"homepage": "https://joshuabaker.com/"
+		}
+	],
+	"require": {
+		"sentry/sentry": "^1.5"
+	},
+	"config": {
+		"vendor-dir": "sentry/vendor"
+	}
+}
