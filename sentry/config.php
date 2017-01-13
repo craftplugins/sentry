@@ -1,5 +1,7 @@
 <?php
 
+namespace Craft;
+
 return [
 
     /**
@@ -49,5 +51,18 @@ return [
      * @param bool
      */
     'includePluginLogs' => false,
+
+    /**
+     * Fingerprints to use for exceptions.
+     *
+     * Set keys to exception classes and values fingerprint values.
+     *
+     * @param array
+     */
+    'exceptionFingerprints' => [
+        HttpException::class => [
+            UrlHelper::getUrl(craft()->request->getPath())
+        ],
+    ],
 
 ];

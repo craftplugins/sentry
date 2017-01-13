@@ -109,6 +109,28 @@ class SentryService extends BaseApplicationComponent
     public function captureException(Exception $exception, array $options = [])
     {
         if ($client = $this->getClient()) {
+            // Set request path and URI for HTTP exceptions
+            if ($exception instanceof HttpException) {
+                $requestUri = craft()->request->getRequestUri();
+
+                $options = array_merge_recursive($options, [
+                    'extra' => [
+                        'Request URL' => UrlHelper::getUrl(ltrim($requestUri, '/')),
+                    ],
+                ]);
+            }
+
+            // Set fingerprints based on the exception class
+            $exceptionFingerprints = craft()->config->get('exceptionFingerprints', 'sentry');
+
+            foreach ($exceptionFingerprints as $class => $fingerprint) {
+                if ($exception instanceof $class) {
+                    $options = array_merge_recursive($options, [
+                        'fingerprint' => $fingerprint,
+                    ]);
+                }
+            }
+
             return $client->captureException($exception, $options);
         }
     }
