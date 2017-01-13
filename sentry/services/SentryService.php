@@ -15,7 +15,6 @@ namespace Craft;
 
 use Exception;
 use Raven_Client;
-use CHttpException;
 
 class SentryService extends BaseApplicationComponent
 {
