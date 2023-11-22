@@ -1,4 +1,8 @@
-<img src="https://rawgit.com/joshuabaker/craft-sentry/master/sentry/resources/icon.svg" width="72">
+> [!IMPORTANT]
+>
+> **This plugin is no longer maintained.**
+>
+> We recommend the [Sentry Logger plugin](https://plugins.craftcms.com/sentry-logger) instead.
 
 # Sentry plugin for Craft CMS
 
